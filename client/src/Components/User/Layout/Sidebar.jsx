@@ -1,47 +1,88 @@
-import React from 'react';
+import { TbHome, TbCalendar, TbUser, TbList, TbSettings, TbLogout } from "react-icons/tb";
+import { IoMdMedkit } from "react-icons/io";
+import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import { IoMdPulse } from "react-icons/io"; 
 
-const Sidebar = () => {
+
+const DoctorSidebar = () => {
+  const navigate = useNavigate();
+
+  const handleLogout = () => {
+    localStorage.removeItem("email");
+    localStorage.removeItem("role");
+    navigate("/login");
+  };
+
   return (
-    <div className="bg-amber-100 w-64 p-6">
-      <div className="mb-8">
-        <h2 className="text-2xl font-bold text-amber-500">Books</h2>
-      </div>
-      <nav>
-        <ul>
-          <li className="mb-4">
-            <a href="/" className="flex items-center text-gray-600 hover:text-amber-500">
-              <img src="/path/to/home-icon.png" alt="Home" className="w-6 h-6 mr-4" />
-              <span>Home</span>
-            </a>
-          </li>
-          <li className="mb-4">
-            <a href="/library" className="flex items-center text-gray-600 hover:text-amber-500">
-              <img src="/path/to/library-icon.png" alt="Library" className="w-6 h-6 mr-4" />
-              <span>My library</span>
-            </a>
-          </li>
-          <li className="mb-4">
-            <a href="/shop" className="flex items-center text-gray-600 hover:text-amber-500">
-              <img src="/path/to/shop-icon.png" alt="Shop" className="w-6 h-6 mr-4" />
-              <span>Tracker</span>
-            </a>
-          </li>
-          <li>
-            <a href="/news" className="flex items-center text-gray-600 hover:text-amber-500">
-              <img src="/path/to/news-icon.png" alt="News" className="w-6 h-6 mr-4" />
-              <span>Communities</span>
-            </a>
-          </li>
-          <li>
-            <a href="/news" className="flex items-center text-gray-600 hover:text-amber-500">
-              <img src="/path/to/news-icon.png" alt="News" className="w-6 h-6 mr-4" />
-              <span>Communities</span>
-            </a>
-          </li>
-        </ul>
-      </nav>
+    <div className="drawer-side">
+      <label htmlFor="my-drawer-2" className="drawer-overlay"></label>
+      <ul className="menu p-4 w-52 bg-[#F2F2F2] text-base-content">
+        <div className="mb-4 flex items-center">
+          <img
+            src="/src/assets/logo-images/logo-l.png"
+            alt="Logo"
+            className="w-3/4 h-auto object-cover mx-auto px-3 pb-3"
+          />
+        </div>
+        <li className="mb-2">
+          <Link
+            to="/doctor"
+            className="flex items-center hover:text-gray-600 text-sm active:bg-gray-300"
+          >
+            <TbHome className="mr-2" />
+            Dashboard
+          </Link>
+        </li>
+        <li className="mb-2">
+          <Link
+            to="/doctor/appointments"
+            className="flex items-center hover:text-gray-600 text-sm active:bg-gray-300"
+          >
+            <TbCalendar className="mr-2" />
+            Appointments
+          </Link>
+        </li>
+        <li className="mb-2">
+          <Link
+            to="/doctor/diagnosis"
+            className="flex items-center hover:text-gray-600 text-sm"
+          >
+            <IoMdPulse className="mr-2" /> 
+            Diagnosis
+          </Link>
+        </li>
+        <li className="mb-2">
+          <Link
+            to="/doctor/patients"
+            className="flex items-center hover:text-gray-600 text-sm active:bg-gray-300"
+          >
+            <TbUser className="mr-2" />
+            Patients
+          </Link>
+        </li>
+        <li className="mb-2">
+          <Link
+            to="/doctor/surgeries"
+            className="flex items-center hover:text-gray-600 text-sm active:bg-gray-300"
+          >
+            <IoMdMedkit className="mr-2" />
+            Surgeries
+          </Link>
+        </li>
+        {/* logout button at the bottom */}
+        <div className="absolute bottom-0 w-full left-0 p-4">
+          <button
+            className="btn border-none bg-error w-full text-center text-white"
+            onClick={handleLogout}
+          >
+            <TbLogout className="mr-2" />
+            Logout
+          </button>
+        </div>
+      </ul>
     </div>
   );
 };
 
-export default Sidebar;
+export default DoctorSidebar;
