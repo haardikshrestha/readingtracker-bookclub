@@ -2,13 +2,13 @@ import React from 'react';
 
 const Login = () => {
     return (
-        <div className="min-h-screen flex items-center justify-center bg-cover bg-center">
+        <div className="min-h-screen flex items-center justify-center bg-cover bg-center bg-mongoose-100">
             <div className="flex w-full max-w-4xl bg-white bg-opacity-95 border rounded-lg overflow-hidden">
-                <div className="w-1/2 p-8 bg-gradient-to-br from-mongoose-100 to-mongoose-200">
-                    <h1 className="text-4xl font-serif text-mongoose-900 mb-4">BookNook</h1>
+                <div className="w-1/2 p-8 bg-gradient-to-br from-mongoose-200 to-mongoose-300">
+                    <h1 className="text-4xl font-serif text-mongoose-900 mb-4">Bookmark</h1>
                     <p className="text-lg text-mongoose-800 font-medium">Your personal library, reimagined.</p>
                     <p className="mt-4 text-mongoose-700">Dive into a world of stories, manage your collection, and connect with fellow book lovers.</p>
-                    <div class="h-32 border-l-2 border-dashed border-black"></div>
+                    {/* <div class="h-32 border-l-2 border-dashed border-black"></div> */}
                 </div>
 
                 <div className="w-1/2 p-8 bg-white">
@@ -29,7 +29,7 @@ const Login = () => {
                         </div>
                     </form>
                     <p className="mt-6 text-center text-sm text-gray-600">
-                        New to BookNook? <a href="#" className="font-medium text-mongoose-600 hover:text-mongoose-500">Create an account</a>
+                        New to Bookmark? <a href="#" className="font-medium text-mongoose-600 hover:text-mongoose-500">Create an account</a>
                     </p>
                 </div>
             </div>
